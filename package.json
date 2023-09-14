@@ -1,0 +1,26 @@
+{
+    "name": "To Do List",
+    "version": "1.0.0",
+    "description": "To Do List project for TOP",
+    "main": "index.js",
+    "mode": "developmen",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "watch": "webpack --watch",
+        "start": "webpack serve --open"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "css-loader": "^6.8.1",
+        "file-loader": "^6.2.0",
+        "style-loader": "^3.3.3",
+        "webpack": "^5.88.2",
+        "webpack-cli": "^5.1.4",
+        "webpack-dev-server": "^4.15.1"
+    },
+    "dependencies": {
+        "date-fns": "^2.30.0"
+    }
+}
