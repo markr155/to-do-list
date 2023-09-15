@@ -1,0 +1,32 @@
+body {
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template: 1fr 6fr 0.5fr / 2fr 6fr;
+    grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+div {
+    border: 1px solid white;
+    min-width: 100px;
+    min-height: 100px;
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
