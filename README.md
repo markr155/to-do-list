@@ -12,6 +12,9 @@ div that displays tasks
 
 add todo button
 new brings up modal to add new project or todo
+    modal layout
+        Project | Form
+        ToDo    | 
 
 Features
     Projects
