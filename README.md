@@ -11,13 +11,13 @@ ToDo objects
 div that displays tasks
 
 add todo button
-
+new brings up modal to add new project or todo
 
 Features
     Projects
-        contains seprate list of ToDos
-    View all project
-        shortened lit of ToDos for each project
+        contains separate list of ToDos
+    View all projects
+        shortened list of ToDos for each project
     Check Todo as completed
     Delete Todos
     Local Storage
@@ -27,3 +27,6 @@ Header
 Nav/SideBar
 Footer
 Main
+    should be Project Title
+                description
+                list of To Dos

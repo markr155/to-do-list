@@ -1,7 +1,11 @@
-import defaultData from './todos.js';
-import displayToDos from './domChanges.js';
+import data from './todos.js';
+import domChange from './domChanges.js';
 
 //element declaration
 const main = document.getElementById('main');
+const newButton = document.querySelector('.newButton');
+newButton.addEventListener('click', () => {
+    
+})
 
-displayToDos(defaultData());
+domChange.displayToDos(data.defaultData());

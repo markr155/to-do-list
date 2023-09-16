@@ -10,10 +10,17 @@ function displayToDos(toDoArray) {
         newToDo.appendChild(addPropertyToDisplay(toDo, 'description'));
         newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
         newToDo.appendChild(addPropertyToDisplay(toDo, 'priority'));
+        //Completed part of To Do
         const toDoCompleted = document.createElement('div');
         toDoCompleted.textContent = 'No';
         newToDo.appendChild(toDoCompleted);
         newToDo.classList.add('toDoItem');
+        // Delete To Do button
+        const toDoDelete = document.createElement('button');
+        toDoDelete.textContent = 'Delete';
+        toDoDelete.classList.add('deleteToDoButton');
+        newToDo.appendChild(toDoDelete);
+        // Set To Do index for deletion 
         newToDo.setAttribute('index', index);
         main.appendChild(newToDo);
     });
@@ -40,12 +47,15 @@ function mainHeader() {
     headerPriority.textContent = 'Priority';
     const headerCompleted = document.createElement('div');
     headerCompleted.textContent = 'Completed';
+    const headerDelete = document.createElement('div');
+    headerDelete.textContent = 'Delete To-Do';
     header.appendChild(headerTitle);
     header.appendChild(headerDescription);
     header.appendChild(headerDueDate);
     header.appendChild(headerPriority);
     header.appendChild(headerCompleted);
+    header.appendChild(headerDelete);
     return header;
 };
 
-export default displayToDos;
+export default { displayToDos };
