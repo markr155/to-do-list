@@ -23,11 +23,11 @@ div {
     grid-area: sidebar;
 }
 
-.main {
+#main {
     grid-area: main;
 }
 
-.main > div {
+#main > div {
     display: flex;
 }
 
