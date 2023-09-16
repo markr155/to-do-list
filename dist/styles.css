@@ -27,6 +27,10 @@ div {
     grid-area: main;
 }
 
+.main > div {
+    display: flex;
+}
+
 .footer {
     grid-area: footer;
 }

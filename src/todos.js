@@ -8,7 +8,18 @@ const toDoFactory = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority}
 };
 
-const toDo1 = toDoFactory('Code', 'Finish to-do-list project', 'Next week', 'High');
+// Storing each ToDo
+const toDoArray = [];
 
-console.log(toDo1.title);
+function addToDo(todo){
+    toDoArray.push(todo);
+};
+
+function defaultData() {
+    const toDo1 = toDoFactory('Code', 'Finish to-do-list project', 'Next week', 'High');
+    addToDo(toDo1);
+    return toDoArray;
+};
+
+export default defaultData;
 
