@@ -14,6 +14,7 @@ function displayToDos(toDoArray) {
         toDoCompleted.textContent = 'No';
         newToDo.appendChild(toDoCompleted);
         newToDo.classList.add('toDoItem');
+        newToDo.setAttribute('index', index);
         main.appendChild(newToDo);
     });
 }

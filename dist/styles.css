@@ -9,10 +9,13 @@ body {
     "footer footer";
 }
 
-div {
-    border: 1px solid white;
+body div {
     min-width: 100px;
     min-height: 100px;
+}
+
+div {
+    border: 1px solid white;
 }
 
 .header {
@@ -29,6 +32,7 @@ div {
 
 #main > div {
     display: flex;
+
 }
 
 .footer {
