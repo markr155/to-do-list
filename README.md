@@ -35,8 +35,6 @@ Main
                 list of To Dos
 
 To Do:
-add new todo form in modal | submit button adds new todo and displays
-                    change new button to 'new project' and add 'new todo' button
 create project objects | each todo is assigned to a project
 default/example project
 add new project form modal

@@ -12,7 +12,7 @@ li {
     list-style-type: none;
 }
 
-body div {
+body > div {
     min-width: 100px;
     min-height: 100px;
 }
@@ -47,4 +47,8 @@ div {
 
 #newDialogContainer {
     display: flex;
+}
+
+dialog > input {
+    width: 100%;
 }

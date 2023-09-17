@@ -1,4 +1,4 @@
-// Add ToDo-s to main div
+// Add ToDos to main div
 function displayToDos(toDoArray) {
     // Clear Main
     main.textContent = '';
@@ -24,6 +24,7 @@ function displayToDos(toDoArray) {
         newToDo.setAttribute('index', index);
         main.appendChild(newToDo);
     });
+    main.appendChild(newToDoButton());
 }
 
 // Returns the item property as a div
@@ -57,5 +58,16 @@ function mainHeader() {
     header.appendChild(headerDelete);
     return header;
 };
+
+// Create New To Do button in main
+function newToDoButton() {
+    const button = document.createElement('button');
+    button.textContent = 'New To Do';
+    button.classList.add('newToDoButton');
+    button.addEventListener('click', () => {
+        newToDoDialog.showModal();
+    })
+    return button;
+}
 
 export default { displayToDos };

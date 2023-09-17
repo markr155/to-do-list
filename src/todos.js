@@ -17,7 +17,7 @@ function addToDo(todo){
 
 function createToDo(title, description, dueDate, priority) {
     const newToDo = toDoFactory(title, description, dueDate, priority);
-    addToDo(newTodo);
+    addToDo(newToDo);
     return toDoArray;
 }
 
