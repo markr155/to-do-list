@@ -2,11 +2,14 @@ body {
     background-color: black;
     color: white;
     display: grid;
-    grid-template: 1fr 6fr 1fr / 2fr 6fr;
+    grid-template: 1fr 6fr / 2fr 6fr;
     grid-template-areas:
     "header header"
     "sidebar main"
-    "footer footer";
+}
+
+li {
+    list-style-type: none;
 }
 
 body div {
@@ -38,7 +41,10 @@ div {
     flex: 1;
 }
 
-
 .footer {
     grid-area: footer;
+}
+
+#newDialogContainer {
+    display: flex;
 }
