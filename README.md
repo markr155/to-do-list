@@ -35,8 +35,6 @@ Main
                 list of To Dos
 
 To Do:
-create project objects | each todo is assigned to a project
-default/example project
 add new project form modal
 
 remove main header

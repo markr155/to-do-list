@@ -1,28 +1,30 @@
-// ToDo objects
-//     Title  
-//     Description
-//     DueDate
-//     Priority - Low Medium High
-//     Completed
+// Reference to current active project
+let currentProject;
+// Returns the current project
+function getCurrentProject() {
+    return currentProject;
+};
+// To Do Creator
 const toDoFactory = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority}
 };
-
+// Project Creator
 const projectsFactory = (title, description) => {
     const todos = [];
     const addToProject = (newToDo) => {todos.push(newToDo)};
     return { title, description, todos, addToProject};
 };
-
+// Creates To Do and adds to project that is passed
 function createToDo(title, description, dueDate, priority, project) {
     const newToDo = toDoFactory(title, description, dueDate, priority);
     project.addToProject(newToDo);
     return;
-}
-
+};
+// Creates default data to do and adds to default project for initial load
 function defaultData() {
     const project = defaultProject();
     createToDo('Code', 'Finish to-do-list project', 'Next week', 'High', project);
+    currentProject = project;
     return project;
 };
 
@@ -34,5 +36,5 @@ function defaultProject() {
 
 
 
-export default { defaultData, createToDo };
+export default { defaultData, createToDo, getCurrentProject };
 

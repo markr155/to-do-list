@@ -19,9 +19,10 @@ submitNewToDo.addEventListener('click', () => {
         newToDoForm.title.value,
         newToDoForm.description.value,
         newToDoForm.dueDate.value,
-        newToDoForm.priority.value
+        newToDoForm.priority.value,
+        data.getCurrentProject()
     );
-    domChange.displayToDos(newToDo);
+    domChange.displayToDos(data.getCurrentProject());
 });
 
 domChange.displayToDos(data.defaultData());
