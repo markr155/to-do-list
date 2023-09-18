@@ -1,10 +1,10 @@
 // Add ToDos to main div
-function displayToDos(toDoArray) {
+function displayToDos(project) {
     // Clear Main
     main.textContent = '';
     main.appendChild(mainHeader());
     // Loop through To Do Array and display each item 
-    toDoArray.forEach((toDo, index) => {
+    project.todos.forEach((toDo, index) => {
         const newToDo = document.createElement('div');
         newToDo.appendChild(addPropertyToDisplay(toDo, 'title'));
         newToDo.appendChild(addPropertyToDisplay(toDo, 'description'));
@@ -25,6 +25,7 @@ function displayToDos(toDoArray) {
         main.appendChild(newToDo);
     });
     main.appendChild(newToDoButton());
+    main.dataset.project = project.title;
 }
 
 // Returns the item property as a div

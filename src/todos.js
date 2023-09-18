@@ -8,24 +8,31 @@ const toDoFactory = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority}
 };
 
-// Storing each ToDo
-const toDoArray = [];
-
-function addToDo(todo){
-    toDoArray.push(todo);
+const projectsFactory = (title, description) => {
+    const todos = [];
+    const addToProject = (newToDo) => {todos.push(newToDo)};
+    return { title, description, todos, addToProject};
 };
 
-function createToDo(title, description, dueDate, priority) {
+function createToDo(title, description, dueDate, priority, project) {
     const newToDo = toDoFactory(title, description, dueDate, priority);
-    addToDo(newToDo);
-    return toDoArray;
+    project.addToProject(newToDo);
+    return;
 }
 
 function defaultData() {
-    const toDo1 = toDoFactory('Code', 'Finish to-do-list project', 'Next week', 'High');
-    addToDo(toDo1);
-    return toDoArray;
+    const project = defaultProject();
+    createToDo('Code', 'Finish to-do-list project', 'Next week', 'High', project);
+    return project;
 };
+
+function defaultProject() {
+    const project = projectsFactory('Default ToDos', 'Examples of ToDos');
+    return project;
+
+}
+
+
 
 export default { defaultData, createToDo };
 
