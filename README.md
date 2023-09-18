@@ -35,11 +35,14 @@ Main
                 list of To Dos
 
 To Do:
-add new project form modal
+add new project button to update projects list
 
-remove main header
 todo display to be 
    compltdCheck| Title     detailsBtn | Due Date | Priority | Delete 
+
+figure out how to add a check mark for completed
+    strikethrough todo that's completed
+
 
 make projects list clickable with styles
 view all button to make project 'cards' that show the current ToDos

@@ -27,10 +27,16 @@ function createToDo(title, description, dueDate, priority, project) {
     project.addToProject(newToDo);
     return;
 };
+// Creates new project
+function createProject(title, description){
+    const newProject = projectsFactory(title, description);
+    
+}
+
 // Creates default data to do and adds to default project for initial load
 function defaultData() {
     const project = defaultProject();
-    createToDo('Code', 'Finish to-do-list project', 'Next week', 'High', project);
+    createToDo('Code', 'Finish to-do-list project', '2023-09-19', 'High', project);
     projects.setActiveProject(project);
     return project;
 };

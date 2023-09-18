@@ -22,10 +22,19 @@
         <button class="newToDoButton">New ToDo</button>
     </div>
     <dialog id="newProjectDialog">     
-            <div id="newProjectDialogForm">
+            <div id="newProjectForm">
                 <form method="dialog">
-                    <button id="submitNewProjectButton" class="dialogButton">Submit</button>
-                    <button id="closeNewProjectButton" class="dialogButton">Close</button>
+                    <div><label for="title">Title</label>
+                        <input type="text" name="title">
+                    </div>
+                    <div>
+                        <label for="description">Description</label>
+                        <textarea rows="3"name="description"></textarea>
+                    </div>
+                    <div>
+                        <button id="submitNewProjectButton" class="dialogButton">Add Project</button>
+                        <button id="closeNewProjectButton" class="dialogButton">Close</button>
+                    </div>
                 </form>
             </div>
     </div>
@@ -58,7 +67,7 @@
                 </div>
 
                 <div>
-                    <button id="submitNewToDoButton" class="dialogButton">Submit</button>
+                    <button id="submitNewToDoButton" class="dialogButton">Add To Do</button>
                     <button id="closeNewToDoButton" class="dialogButton">Close</button>
                 </div>
             </form>

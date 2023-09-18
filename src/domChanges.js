@@ -2,12 +2,11 @@
 function displayToDos(project) {
     // Clear Main
     main.textContent = '';
-    main.appendChild(mainHeader());
     // Loop through To Do Array and display each item 
     project.todos.forEach((toDo, index) => {
         const newToDo = document.createElement('div');
         newToDo.appendChild(addPropertyToDisplay(toDo, 'title'));
-        newToDo.appendChild(addPropertyToDisplay(toDo, 'description'));
+        newToDo.appendChild(detailsButton());
         newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
         newToDo.appendChild(addPropertyToDisplay(toDo, 'priority'));
         //Completed part of To Do
@@ -25,7 +24,6 @@ function displayToDos(project) {
         main.appendChild(newToDo);
     });
     main.appendChild(newToDoButton());
-    main.dataset.project = project.title;
 }
 
 // Returns the item property as a div
@@ -34,30 +32,6 @@ function addPropertyToDisplay(item, property) {
     element.classList.add(property);
     element.textContent = item[property];
     return element;
-}
-
-// Creates header in main div
-function mainHeader() {
-    const header = document.createElement('div');
-    const headerTitle = document.createElement('div');
-    headerTitle.textContent = 'Title';
-    const headerDescription = document.createElement('div');
-    headerDescription.textContent = 'Description';
-    const headerDueDate = document.createElement('div');
-    headerDueDate.textContent = 'Due Date';
-    const headerPriority = document.createElement('div');
-    headerPriority.textContent = 'Priority';
-    const headerCompleted = document.createElement('div');
-    headerCompleted.textContent = 'Completed';
-    const headerDelete = document.createElement('div');
-    headerDelete.textContent = 'Delete To-Do';
-    header.appendChild(headerTitle);
-    header.appendChild(headerDescription);
-    header.appendChild(headerDueDate);
-    header.appendChild(headerPriority);
-    header.appendChild(headerCompleted);
-    header.appendChild(headerDelete);
-    return header;
 };
 
 // Create New To Do button in main
@@ -68,6 +42,13 @@ function newToDoButton() {
     button.addEventListener('click', () => {
         newToDoDialog.showModal();
     })
+    return button;
+};
+
+function detailsButton() {
+    const button = document.createElement('button');
+    button.textContent = 'Details';
+    button.classList.add('detailsButton');
     return button;
 }
 
