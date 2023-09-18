@@ -1,9 +1,16 @@
-// Reference to current active project
-let currentProject;
-// Returns the current project
-function getCurrentProject() {
-    return currentProject;
-};
+// Set/Get Active project
+const projects = (function projectList() {
+    let activeProject = '';
+    return {
+        getActiveProject: function() {
+            return activeProject;
+        },
+        setActiveProject: function(project) {
+            activeProject = project;
+        }
+    };
+})();
+
 // To Do Creator
 const toDoFactory = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority}
@@ -24,17 +31,16 @@ function createToDo(title, description, dueDate, priority, project) {
 function defaultData() {
     const project = defaultProject();
     createToDo('Code', 'Finish to-do-list project', 'Next week', 'High', project);
-    currentProject = project;
+    projects.setActiveProject(project);
     return project;
 };
 
 function defaultProject() {
     const project = projectsFactory('Default ToDos', 'Examples of ToDos');
     return project;
-
 }
 
 
 
-export default { defaultData, createToDo, getCurrentProject };
+export default { defaultData, createToDo, projects };
 
