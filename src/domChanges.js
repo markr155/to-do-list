@@ -14,11 +14,7 @@ function displayToDos(project) {
         toDoCompleted.textContent = 'No';
         newToDo.appendChild(toDoCompleted);
         newToDo.classList.add('toDoItem');
-        // Delete To Do button
-        const toDoDelete = document.createElement('button');
-        toDoDelete.textContent = 'Delete';
-        toDoDelete.classList.add('deleteToDoButton');
-        newToDo.appendChild(toDoDelete);
+        newToDo.appendChild(toDoDelete());
         // Set To Do index for deletion 
         newToDo.setAttribute('index', index);
         main.appendChild(newToDo);
@@ -33,7 +29,13 @@ function addPropertyToDisplay(item, property) {
     element.textContent = item[property];
     return element;
 };
-
+// Delete To Do button
+function toDoDelete(){
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('deleteToDoButton');
+    return deleteButton;
+};
 // Create New To Do button in main
 function newToDoButton() {
     const button = document.createElement('button');
@@ -54,14 +56,13 @@ function detailsButton() {
 // Project list display
 function displayProjects(projects) {
     projectsList.textContent = '';
-    console.log(projects);
     projectsList.appendChild(viewAllProjects());
-    projects.forEach((project) => {
+    projects.forEach((project, index) => {
         const newProject = document.createElement('li');
         newProject.classList.add('projectListItem');
         newProject.textContent = project.title;
+        newProject.dataset.index = index;
         projectsList.appendChild(newProject);
-        console.log(project);
     });
 };
 // Adds View all list item for project list

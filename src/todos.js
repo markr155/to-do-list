@@ -2,12 +2,14 @@
 const projects = (function projectList() {
     const projectStorage = [];
     let activeProject = '';
+    let activeProjectIndex = '';
     return {
         getActiveProject: function() {
             return activeProject;
         },
         setActiveProject: function(project) {
             activeProject = project;
+            activeProjectIndex = projectStorage.indexOf(project);
         },
         getProjectList: function() {
             return projectStorage;
@@ -18,6 +20,14 @@ const projects = (function projectList() {
         createProject: function createProject(title, description){
             const newProject = projectsFactory(title, description);
             return newProject;
+        },
+        deleteToDo: function deleteToDo(todoIndex){
+            projectStorage.splice(todoIndex, 1);
+        },
+        deleteProject: function deleteProject(){
+            projectStorage.splice(activeProjectIndex, 1);
+            setActiveProject(projectStorage[0]);
+
         }
         
     };

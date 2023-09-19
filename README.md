@@ -35,6 +35,10 @@ Main
                 list of To Dos
 
 To Do:
+adding delete event listener that actually deletes
+fixing deletetodo and deleteproject functions
+    set up active project function index 
+
 todo display to be 
    compltdCheck| Title     detailsBtn | Due Date | Priority | Delete 
 
