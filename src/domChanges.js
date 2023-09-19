@@ -9,7 +9,7 @@ function displayToDos(project) {
         newToDo.appendChild(detailsButton());
         newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
         newToDo.appendChild(addPropertyToDisplay(toDo, 'priority'));
-        //Completed part of To Do
+        // Completed part of To Do
         const toDoCompleted = document.createElement('div');
         toDoCompleted.textContent = 'No';
         newToDo.appendChild(toDoCompleted);
@@ -44,12 +44,32 @@ function newToDoButton() {
     })
     return button;
 };
-
+// Adds details button to To Do
 function detailsButton() {
     const button = document.createElement('button');
     button.textContent = 'Details';
     button.classList.add('detailsButton');
     return button;
+};
+// Project list display
+function displayProjects(projects) {
+    projectsList.textContent = '';
+    console.log(projects);
+    projectsList.appendChild(viewAllProjects());
+    projects.forEach((project) => {
+        const newProject = document.createElement('li');
+        newProject.classList.add('projectListItem');
+        newProject.textContent = project.title;
+        projectsList.appendChild(newProject);
+        console.log(project);
+    });
+};
+// Adds View all list item for project list
+function viewAllProjects() {
+    const listItem = document.createElement('li');
+    listItem.classList.add('projectListItem');
+    listItem.textContent = 'View All';
+    return listItem;
 }
 
-export default { displayToDos };
+export default { displayToDos, displayProjects };

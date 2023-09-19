@@ -1,5 +1,6 @@
 // Set/Get Active project
 const projects = (function projectList() {
+    const projectStorage = [];
     let activeProject = '';
     return {
         getActiveProject: function() {
@@ -7,10 +8,20 @@ const projects = (function projectList() {
         },
         setActiveProject: function(project) {
             activeProject = project;
+        },
+        getProjectList: function() {
+            return projectStorage;
+        },
+        addProject: function(project) {
+            projectStorage.push(project);
+        },
+        createProject: function createProject(title, description){
+            const newProject = projectsFactory(title, description);
+            return newProject;
         }
+        
     };
 })();
-
 // To Do Creator
 const toDoFactory = (title, description, dueDate, priority) => {
     return { title, description, dueDate, priority}
@@ -28,23 +39,15 @@ function createToDo(title, description, dueDate, priority, project) {
     return;
 };
 // Creates new project
-function createProject(title, description){
-    const newProject = projectsFactory(title, description);
-    
-}
+
 
 // Creates default data to do and adds to default project for initial load
 function defaultData() {
-    const project = defaultProject();
+    const project = projects.createProject('Default To Dos', 'Examples of ToDos');
     createToDo('Code', 'Finish to-do-list project', '2023-09-19', 'High', project);
+    projects.addProject(project);
     projects.setActiveProject(project);
-    return project;
 };
-
-function defaultProject() {
-    const project = projectsFactory('Default ToDos', 'Examples of ToDos');
-    return project;
-}
 
 
 

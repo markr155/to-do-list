@@ -10,10 +10,9 @@
 <body>
     <div class="header"><p>Your To-Dos</p></div>
     <div class="sidebar">
-        <div class="projectsContainer">Projects
+        <div class="projectsContainer">
+            <p>Projects</p>
             <ul id="projectsList">
-                <li>View all</li>
-                <li>Project 1</li>
             </ul>
         </div>
         <button class="newProjectButton">New Project</button>
@@ -22,14 +21,14 @@
         <button class="newToDoButton">New ToDo</button>
     </div>
     <dialog id="newProjectDialog">     
-            <div id="newProjectForm">
-                <form method="dialog">
+            <div id="newProjectDialogContainer">
+                <form method="dialog" id="newProjectForm">
                     <div><label for="title">Title</label>
                         <input type="text" name="title">
                     </div>
                     <div>
                         <label for="description">Description</label>
-                        <textarea rows="3"name="description"></textarea>
+                        <textarea rows="3"name="description" id="projectDescription"></textarea>
                     </div>
                     <div>
                         <button id="submitNewProjectButton" class="dialogButton">Add Project</button>

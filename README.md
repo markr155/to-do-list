@@ -35,8 +35,6 @@ Main
                 list of To Dos
 
 To Do:
-add new project button to update projects list
-
 todo display to be 
    compltdCheck| Title     detailsBtn | Due Date | Priority | Delete 
 

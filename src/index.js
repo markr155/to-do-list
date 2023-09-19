@@ -6,16 +6,19 @@ const main = document.getElementById('main');
 const newProjectButton = document.querySelector('.newProjectButton');
 const newProjectDialog = document.getElementById('newProjectDialog');
 const newToDoForm = document.getElementById('newToDoForm');
-const submitNewToDo = document.getElementById('submitNewToDoButton');
-const submitNewProject = document.getElementById('submitNewProjectButton');
+const newProjectForm = document.getElementById('newProjectForm');
+const addNewToDo = document.getElementById('submitNewToDoButton');
+const addNewProject = document.getElementById('submitNewProjectButton');
+const projectDescription = document.getElementById('projectDescription');
+const projectsList = document.getElementById('projectsList');
 
-// Add new todo/project button
+// Show add project modal
 newProjectButton.addEventListener('click', () => {
     newProjectDialog.showModal();
 });
 
 // Adds new ToDo to Add new to do button
-submitNewToDo.addEventListener('click', () => {
+addNewToDo.addEventListener('click', () => {
     const newToDo = data.createToDo(
         newToDoForm.title.value,
         newToDoForm.description.value,
@@ -23,12 +26,19 @@ submitNewToDo.addEventListener('click', () => {
         newToDoForm.priority.value,
         data.projects.getActiveProject()
     );
+    // Refreshs display of current project for new To Do
     domChange.displayToDos(data.projects.getActiveProject());
 });
 
-// Adds new project to Add new project button
-submitNewProject.addEventListener('click', () => {
-    
+// Adds new project when new project submitted
+addNewProject.addEventListener('click', () => {
+    const newProject = data.projects.createProject(
+        newProjectForm.title.value,
+        projectDescription.value
+    )
+    data.projects.addProject(newProject);
+    domChange.displayProjects(data.projects.getProjectList());
 });
-
-domChange.displayToDos(data.defaultData());
+data.defaultData();
+domChange.displayToDos(data.projects.getActiveProject());
+domChange.displayProjects(data.projects.getProjectList());
