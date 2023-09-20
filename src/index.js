@@ -23,7 +23,7 @@ const newProjectButton = document.querySelector('.newProjectButton');
 const newProjectDialog = document.getElementById('newProjectDialog');
 const newToDoForm = document.getElementById('newToDoForm');
 const newProjectForm = document.getElementById('newProjectForm');
-const deleteProjectButton = document.querySelector('class', 'deleteProjectButton');
+const deleteProjectButton = document.querySelector('.deleteProjectButton');
 const addNewToDoButton = document.getElementById('submitNewToDoButton');
 const addNewProjectButton = document.getElementById('submitNewProjectButton');
 const projectDescription = document.getElementById('projectDescription');
@@ -47,14 +47,20 @@ addNewToDoButton.addEventListener('click', () => {
     refreshDisplay();
 });
 
+// Deletes project on click
+deleteProjectButton.addEventListener('click', () => {
+    data.projects.deleteProject();
+    refreshDisplay();
+});
+
 // Adds new project when new project submitted
 addNewProjectButton.addEventListener('click', () => {
     const newProject = data.projects.createProject(
         newProjectForm.title.value,
         projectDescription.value
-    )
+    );
     data.projects.addProject(newProject);
-    domChange.displayProjects(data.projects.getProjectList());
+    refreshDisplay();
 });
 
 data.defaultData();

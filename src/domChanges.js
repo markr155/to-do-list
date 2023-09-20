@@ -3,23 +3,30 @@ function displayToDos(project) {
     // Clear Main
     main.textContent = '';
     // Loop through To Do Array and display each item 
-    project.todos.forEach((toDo, index) => {
-        const newToDo = document.createElement('div');
-        newToDo.appendChild(addPropertyToDisplay(toDo, 'title'));
-        newToDo.appendChild(detailsButton());
-        newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
-        newToDo.appendChild(addPropertyToDisplay(toDo, 'priority'));
-        // Completed part of To Do
-        const toDoCompleted = document.createElement('div');
-        toDoCompleted.textContent = 'No';
-        newToDo.appendChild(toDoCompleted);
-        newToDo.classList.add('toDoItem');
-        newToDo.appendChild(toDoDelete());
-        // Set To Do index for deletion 
-        newToDo.setAttribute('index', index);
-        main.appendChild(newToDo);
-    });
-    main.appendChild(newToDoButton());
+    try{
+        project.todos.forEach((toDo, index) => {
+            const newToDo = document.createElement('div');
+            newToDo.appendChild(addPropertyToDisplay(toDo, 'title'));
+            newToDo.appendChild(detailsButton());
+            newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
+            newToDo.appendChild(addPropertyToDisplay(toDo, 'priority'));
+            // Completed part of To Do
+            const toDoCompleted = document.createElement('div');
+            toDoCompleted.textContent = 'No';
+            newToDo.appendChild(toDoCompleted);
+            newToDo.classList.add('toDoItem');
+            newToDo.appendChild(toDoDelete());
+            // Set To Do index for deletion 
+            newToDo.setAttribute('index', index);
+            main.appendChild(newToDo);
+            });
+        main.appendChild(newToDoButton());
+        }
+    catch(err){
+        console.log('No projects in list');
+        main.textContent = 'Add a new project to begin';
+        }
+
 }
 
 // Returns the item property as a div

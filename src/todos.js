@@ -15,6 +15,7 @@ const projects = (function projectList() {
             return projectStorage;
         },
         addProject: function(project) {
+            this.setActiveProject(project);
             projectStorage.push(project);
         },
         createProject: function createProject(title, description){
@@ -22,11 +23,12 @@ const projects = (function projectList() {
             return newProject;
         },
         deleteToDo: function deleteToDo(todoIndex){
-            activeProject.deleteToDo(todoIndex);
+            this.getActiveProject().deleteToDo(todoIndex);
         },
         deleteProject: function deleteProject(){
             projectStorage.splice(activeProjectIndex, 1);
-            setActiveProject(projectStorage[0]);
+            this.setActiveProject(projectStorage[0]);
+
 
         }
         
