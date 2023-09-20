@@ -1,8 +1,8 @@
 // Set/Get Active project
 const projects = (function projectList() {
     const projectStorage = [];
-    let activeProject = '';
-    let activeProjectIndex = '';
+    let activeProject;
+    let activeProjectIndex;
     return {
         getActiveProject: function() {
             return activeProject;
@@ -22,7 +22,7 @@ const projects = (function projectList() {
             return newProject;
         },
         deleteToDo: function deleteToDo(todoIndex){
-            projectStorage.splice(todoIndex, 1);
+            activeProject.deleteToDo(todoIndex);
         },
         deleteProject: function deleteProject(){
             projectStorage.splice(activeProjectIndex, 1);
@@ -40,7 +40,8 @@ const toDoFactory = (title, description, dueDate, priority) => {
 const projectsFactory = (title, description) => {
     const todos = [];
     const addToProject = (newToDo) => {todos.push(newToDo)};
-    return { title, description, todos, addToProject};
+    const deleteToDo = (index) => {todos.splice(index, 1)};
+    return { title, description, todos, addToProject, deleteToDo};
 };
 // Creates To Do and adds to project that is passed
 function createToDo(title, description, dueDate, priority, project) {
@@ -54,9 +55,9 @@ function createToDo(title, description, dueDate, priority, project) {
 // Creates default data to do and adds to default project for initial load
 function defaultData() {
     const project = projects.createProject('Default To Dos', 'Examples of ToDos');
-    createToDo('Code', 'Finish to-do-list project', '2023-09-19', 'High', project);
     projects.addProject(project);
     projects.setActiveProject(project);
+    createToDo('Code', 'Finish to-do-list project', '2023-09-19', 'High', project);
 };
 
 

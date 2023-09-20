@@ -71,6 +71,6 @@ function viewAllProjects() {
     listItem.classList.add('projectListItem');
     listItem.textContent = 'View All';
     return listItem;
-}
+};
 
 export default { displayToDos, displayProjects };

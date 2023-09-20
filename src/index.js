@@ -1,24 +1,31 @@
 import data from './todos.js';
 import domChange from './domChanges.js';
 
-// Deletes To Dos on clicking delete button
+// Deletes To Do functionality
 function deleteButtons() {
     const deleteButtons = document.getElementsByClassName('deleteToDoButton');
     for (let i = 0; i < deleteButtons.length; i++){
         deleteButtons[i].addEventListener(('click'), (e) => {
             data.projects.deleteToDo(e.currentTarget.parentElement.getAttribute('index'));
-            domChange.displayToDos(data.projects.getActiveProject());
+            refreshDisplay();
         })
-    }
+    };
 };
+// Refreshes display for ToDos and Projects
+function refreshDisplay() {
+    domChange.displayToDos(data.projects.getActiveProject());
+    domChange.displayProjects(data.projects.getProjectList());
+    deleteButtons();
+}
 //element declaration
 const main = document.getElementById('main');
 const newProjectButton = document.querySelector('.newProjectButton');
 const newProjectDialog = document.getElementById('newProjectDialog');
 const newToDoForm = document.getElementById('newToDoForm');
 const newProjectForm = document.getElementById('newProjectForm');
-const addNewToDo = document.getElementById('submitNewToDoButton');
-const addNewProject = document.getElementById('submitNewProjectButton');
+const deleteProjectButton = document.querySelector('class', 'deleteProjectButton');
+const addNewToDoButton = document.getElementById('submitNewToDoButton');
+const addNewProjectButton = document.getElementById('submitNewProjectButton');
 const projectDescription = document.getElementById('projectDescription');
 const projectsList = document.getElementById('projectsList');
 
@@ -28,7 +35,7 @@ newProjectButton.addEventListener('click', () => {
 });
 
 // Adds new ToDo to Add new to do button
-addNewToDo.addEventListener('click', () => {
+addNewToDoButton.addEventListener('click', () => {
     const newToDo = data.createToDo(
         newToDoForm.title.value,
         newToDoForm.description.value,
@@ -37,12 +44,11 @@ addNewToDo.addEventListener('click', () => {
         data.projects.getActiveProject()
     );
     // Refreshs display of current project for new To Do
-    domChange.displayToDos(data.projects.getActiveProject());
-    deleteButtons();
+    refreshDisplay();
 });
 
 // Adds new project when new project submitted
-addNewProject.addEventListener('click', () => {
+addNewProjectButton.addEventListener('click', () => {
     const newProject = data.projects.createProject(
         newProjectForm.title.value,
         projectDescription.value
@@ -50,7 +56,7 @@ addNewProject.addEventListener('click', () => {
     data.projects.addProject(newProject);
     domChange.displayProjects(data.projects.getProjectList());
 });
+
 data.defaultData();
-domChange.displayToDos(data.projects.getActiveProject());
-domChange.displayProjects(data.projects.getProjectList());
-deleteButtons();
+refreshDisplay();
+
