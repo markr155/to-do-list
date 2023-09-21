@@ -6,6 +6,7 @@ function displayToDos(project) {
     try{
         project.todos.forEach((toDo, index) => {
             const newToDo = document.createElement('div');
+            newToDo.appendChild(addCompletedBox());
             newToDo.appendChild(addPropertyToDisplay(toDo, 'title'));
             newToDo.appendChild(detailsButton());
             newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
@@ -59,6 +60,18 @@ function detailsButton() {
     button.textContent = 'Details';
     button.classList.add('detailsButton');
     return button;
+};
+// Checkbox for completed ToDo
+function addCompletedBox() {
+    const box = document.createElement('input');
+    box.type = 'checkbox';
+    box.classList.add('checkbox');
+    box.addEventListener('change', (e) => {
+        const todo = e.target.nextElementSibling;
+        const box = e.target;
+        box.checked == true ? todo.classList.add('completed') : todo.classList.remove('completed');
+    });
+    return box;
 };
 // Project list display
 function displayProjects(projects) {

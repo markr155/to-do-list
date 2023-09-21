@@ -38,10 +38,6 @@ To Do:
 todo display to be 
    compltdCheck| Title     detailsBtn | Due Date | Priority | Delete 
 
-figure out how to add a check mark for completed
-    strikethrough todo that's completed
-
-
 make projects list clickable with styles
 view all button to make project 'cards' that show the current ToDos
             project1

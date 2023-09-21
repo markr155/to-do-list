@@ -41,6 +41,10 @@ div {
     flex: 1;
 }
 
+.completed {
+    text-decoration: line-through;
+}
+
 .footer {
     grid-area: footer;
 }
