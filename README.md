@@ -1,21 +1,5 @@
 To Do List
 
-MVP
-ToDo objects
-    Title  
-    Description
-    DueDate
-    Priority - Low Medium High
-    Completed
-
-div that displays tasks
-
-add todo button
-new brings up modal to add new project or todo
-    modal layout
-        Project | Form
-        ToDo    | 
-
 Features
     Projects
         contains separate list of ToDos
@@ -35,11 +19,15 @@ Main
                 list of To Dos
 
 To Do:
+delete current project sets default to view all projects
+details button shows modal of todo that allows edit
+
 todo display to be 
    compltdCheck| Title     detailsBtn | Due Date | Priority | Delete 
 
 make projects list clickable with styles
     active project should remain underlined
+
 view all button to make project 'cards' that show the current ToDos
             project1
                 todo1

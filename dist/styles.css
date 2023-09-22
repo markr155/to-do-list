@@ -10,11 +10,18 @@ body {
 
 li {
     list-style-type: none;
-    padding: 0 0;
+    margin: 4px 0;
     width: max-content;
 }
 
-li:hover {
+li:hover{
+    font-size: 1.1em;
+    /* border-bottom: 1px solid red; */
+    font-weight: bold;
+    background-color: rgba(50, 50, 50, 50%)
+}
+
+.active {
     font-size: 1.1em;
     border-bottom: 1px solid red;
     font-weight: bold;

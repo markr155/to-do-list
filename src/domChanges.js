@@ -11,10 +11,6 @@ function displayToDos(project) {
             newToDo.appendChild(detailsButton());
             newToDo.appendChild(addPropertyToDisplay(toDo, 'dueDate'));
             newToDo.appendChild(addPropertyToDisplay(toDo, 'priority'));
-            // Completed part of To Do
-            const toDoCompleted = document.createElement('div');
-            toDoCompleted.textContent = 'No';
-            newToDo.appendChild(toDoCompleted);
             newToDo.classList.add('toDoItem');
             newToDo.appendChild(toDoDelete());
             // Set To Do index for deletion 
@@ -79,16 +75,28 @@ function displayProjects(projects) {
         newProject.classList.add('projectListItem');
         newProject.textContent = project.title;
         newProject.dataset.index = index;
+        addActiveClass(newProject);
         projectsList.appendChild(newProject);
     });
 };
+// Add active class event listener
+function addActiveClass(element) {
+    element.addEventListener('click', (e) => {
+        const projectListItems = document.querySelectorAll('.projectListItem');
+        projectListItems.forEach((listItem) => {
+            listItem.classList.remove('active');
+        });
+        e.target.classList.add('active'); 
+    });
+}
 // Adds View all list item for project list
 function viewAllProjects() {
     const listItem = document.createElement('li');
-    listItem.classList.add('projectListItem');
     listItem.id = 'viewAllProjects';
-    listItem.textContent = 'View All';
+    listItem.classList.add('projectListItem');
+    listItem.textContent = 'View All Projects';
+    addActiveClass(listItem);
     return listItem;
 };
 
-export default { displayToDos, displayProjects };
+export default { displayToDos, displayProjects, addActiveClass };
