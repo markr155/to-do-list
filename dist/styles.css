@@ -10,6 +10,14 @@ body {
 
 li {
     list-style-type: none;
+    padding: 0 0;
+    width: max-content;
+}
+
+li:hover {
+    font-size: 1.1em;
+    border-bottom: 1px solid red;
+    font-weight: bold;
 }
 
 body > div {
@@ -43,6 +51,7 @@ div {
 
 .completed {
     text-decoration: line-through;
+    filter:contrast(50%);
 }
 
 .footer {

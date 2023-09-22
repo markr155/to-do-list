@@ -26,10 +26,8 @@ function displayToDos(project) {
     catch(err){
         console.log('No projects in list');
         main.textContent = 'Add a new project to begin';
-        }
-
-}
-
+        };
+};
 // Returns the item property as a div
 function addPropertyToDisplay(item, property) {
     const element = document.createElement('div');
@@ -68,8 +66,7 @@ function addCompletedBox() {
     box.classList.add('checkbox');
     box.addEventListener('change', (e) => {
         const todo = e.target.nextElementSibling;
-        const box = e.target;
-        box.checked == true ? todo.classList.add('completed') : todo.classList.remove('completed');
+        e.target.checked === true ? todo.classList.add('completed') : todo.classList.remove('completed');
     });
     return box;
 };
@@ -89,6 +86,7 @@ function displayProjects(projects) {
 function viewAllProjects() {
     const listItem = document.createElement('li');
     listItem.classList.add('projectListItem');
+    listItem.id = 'viewAllProjects';
     listItem.textContent = 'View All';
     return listItem;
 };

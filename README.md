@@ -39,6 +39,7 @@ todo display to be
    compltdCheck| Title     detailsBtn | Due Date | Priority | Delete 
 
 make projects list clickable with styles
+    active project should remain underlined
 view all button to make project 'cards' that show the current ToDos
             project1
                 todo1
